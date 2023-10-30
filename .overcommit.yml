@@ -8,12 +8,12 @@ PreCommit:
   ExecutePermissions:
     enabled: true
     exclude:
-      - 'bin/slim-lint'
+      - 'bin/liquid-lint'
 
   HardTabs:
     enabled: true
     exclude:
-      - 'spec/slim_lint/linter/tab_spec.rb'
+      - 'spec/liquid_lint/linter/tab_spec.rb'
 
   RuboCop:
     enabled: true

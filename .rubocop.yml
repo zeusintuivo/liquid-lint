@@ -8,9 +8,9 @@ AllCops:
 
 Layout/ArrayAlignment:
   Exclude:
-    - 'lib/slim_lint/filters/**/*.rb'
-    - 'lib/slim_lint/linter/**/*.rb'
-    - 'spec/slim_lint/**/*.rb'
+    - 'lib/liquid_lint/filters/**/*.rb'
+    - 'lib/liquid_lint/linter/**/*.rb'
+    - 'spec/liquid_lint/**/*.rb'
 
 Layout/DotPosition:
   EnforcedStyle: leading
@@ -42,7 +42,7 @@ Metrics/AbcSize:
 
 Naming/FileName:
   Exclude:
-    - 'bin/slim-lint'
+    - 'bin/liquid-lint'
     - 'Gemfile'
     - 'Rakefile'
     - '*.gemspec'
@@ -62,7 +62,7 @@ Style/CollectionMethods:
 Style/Documentation:
   Exclude:
     - 'spec/**/*'
-    - 'lib/slim_lint/linter/zwsp.rb'
+    - 'lib/liquid_lint/linter/zwsp.rb'
 
 Style/FormatString:
   Enabled: false

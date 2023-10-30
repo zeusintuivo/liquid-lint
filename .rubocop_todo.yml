@@ -12,23 +12,23 @@
 # SupportedStyles: normal, indented_internal_methods
 Layout/IndentationConsistency:
   Exclude:
-    - 'lib/slim_lint/ruby_parser.rb'
+    - 'lib/liquid_lint/ruby_parser.rb'
 
 # Offense count: 5
 # Configuration parameters: AllowedMethods.
 # AllowedMethods: enums
 Lint/ConstantDefinitionInBlock:
   Exclude:
-    - 'spec/slim_lint/linter_registry_spec.rb'
-    - 'spec/slim_lint/linter_selector_spec.rb'
+    - 'spec/liquid_lint/linter_registry_spec.rb'
+    - 'spec/liquid_lint/linter_selector_spec.rb'
 
 # Offense count: 3
 # Configuration parameters: AllowedParentClasses.
 Lint/MissingSuper:
   Exclude:
-    - 'lib/slim_lint/rake_task.rb'
-    - 'lib/slim_lint/reporter.rb'
-    - 'lib/slim_lint/sexp.rb'
+    - 'lib/liquid_lint/rake_task.rb'
+    - 'lib/liquid_lint/reporter.rb'
+    - 'lib/liquid_lint/sexp.rb'
 
 # Offense count: 1
 # Configuration parameters: AllowedMethods, AllowedPatterns.
@@ -45,8 +45,8 @@ Metrics/PerceivedComplexity:
 # AllowedMethods: respond_to_missing?
 Style/OptionalBooleanParameter:
   Exclude:
-    - 'lib/slim_lint/atom.rb'
-    - 'lib/slim_lint/logger.rb'
+    - 'lib/liquid_lint/atom.rb'
+    - 'lib/liquid_lint/logger.rb'
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
