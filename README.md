@@ -35,7 +35,7 @@ your [SCM hooks](https://github.com/brigade/overcommit).
 ## Installation
 
 ```bash
-gem install liquid_lint
+gem install liquid_lint, github: 'zeusintuivo/liquid-lint'
 ```
 
 ## Usage
