@@ -1,0 +1,76 @@
+# frozen_string_literal: true
+
+require 'spec_helper'
+
+describe LiquidLint::Document do
+  let(:config) { double }
+
+  before do
+    config.stub(:[]).with('skip_frontmatter').and_return(false)
+  end
+
+  describe '#initialize' do
+    let(:source) { normalize_indent(<<-LIQUID) }
+      doctype html
+      head
+        title My title
+      body
+        p My paragraph
+    LIQUID
+
+    let(:options) { { config: config } }
+
+    subject { described_class.new(source, options) }
+
+    it 'stores an S-expression representing the parsed document' do
+      subject.sexp.match?([:multi, [:html, :doctype]]).should == true
+    end
+
+    it 'stores an S-expression with line information' do
+      subject.sexp.line.should == 1
+    end
+
+    it 'stores the source code' do
+      subject.source.should == source
+    end
+
+    it 'stores the individual lines of source code' do
+      subject.source_lines.should == source.split("\n")
+    end
+
+    context 'when file is explicitly specified' do
+      let(:options) { super().merge(file: 'my_file.liquid') }
+
+      it 'sets the file name' do
+        subject.file.should == 'my_file.liquid'
+      end
+    end
+
+    context 'when file is not specified' do
+      it 'returns `nil` for the file name' do
+        subject.file.should be_nil
+      end
+    end
+
+    context 'when skip_frontmatter is specified in config' do
+      before do
+        config.stub(:[]).with('skip_frontmatter').and_return(true)
+      end
+
+      context 'and the source contains frontmatter' do
+        let(:source) { "---\nsome frontmatter\n---\n#{super()}" }
+
+        it 'removes the frontmatter' do
+          subject.source.should_not include '---'
+          subject.source.should include 'doctype html'
+        end
+      end
+
+      context 'and the source does not contain frontmatter' do
+        it 'leaves the source untouched' do
+          subject.source.should == source
+        end
+      end
+    end
+  end
+end
