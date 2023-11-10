@@ -12,7 +12,7 @@ module LiquidLint::Exceptions
   class InvalidFilePath < StandardError; end
 
   # Raised when the Liquid parser is unable to parse a template.
-  class ParseError < ::Liquid::Parser::SyntaxError; end
+  class ParseError < ::Liquid::Template::SyntaxError; end
 
   # Raised when attempting to execute `Runner` with options that would result in
   # no linters being enabled.

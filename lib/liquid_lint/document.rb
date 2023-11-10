@@ -23,7 +23,7 @@ module LiquidLint
     # @param source [String] Liquid code to parse
     # @param options [Hash]
     # @option options :file [String] file name of document that was parsed
-    # @raise [Liquid::Parser::Error] if there was a problem parsing the document
+    # @raise [Liquid::Template::Error] if there was a problem parsing the document
     def initialize(source, options)
       @config = options[:config]
       @file = options.fetch(:file, nil)

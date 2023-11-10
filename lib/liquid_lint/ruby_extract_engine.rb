@@ -11,7 +11,7 @@ module LiquidLint
     filter :RemoveBOM
 
     # Parse into S-expression using Liquid parser
-    use Liquid::Parser
+    use Liquid::Template
 
     # Perform additional processing so extracting Ruby code in {RubyExtractor}
     # is easier. We don't do this for regular linters because some information

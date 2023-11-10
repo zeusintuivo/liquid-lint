@@ -18,7 +18,7 @@ module LiquidLint
     filter :RemoveBOM
 
     # Parse into S-expression using Liquid parser
-    use Liquid::Parser
+    use Liquid::Template
 
     # Converts Array-based S-expressions into LiquidLint::Sexp objects
     use LiquidLint::Filters::SexpConverter
@@ -32,7 +32,7 @@ module LiquidLint
     # @return [LiquidLint::Sexp] parsed Sexp
     def parse(source)
       call(source)
-    rescue ::Liquid::Parser::SyntaxError => e
+    rescue ::Liquid::Template::SyntaxError => e
       # Convert to our own exception type to isolate from upstream changes
       error = LiquidLint::Exceptions::ParseError.new(e.error,
                                                    e.file,
